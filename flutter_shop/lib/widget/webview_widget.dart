@@ -6,7 +6,7 @@ class WebViewWidget extends StatelessWidget {
   String url;
   String title;
 
-  WebViewWidget(this.url, this.title);
+  WebViewWidget(this.title, this.url);
 
   @override
   Widget build(BuildContext context) {

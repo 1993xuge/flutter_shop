@@ -59,6 +59,8 @@ class HttpUtil {
     } else {
       response = await dio.get(url);
     }
+
+    return response.data;
   }
 
   Future post(String url,
@@ -71,5 +73,7 @@ class HttpUtil {
     } else {
       response = await dio.post(url);
     }
+
+    return response.data;
   }
 }

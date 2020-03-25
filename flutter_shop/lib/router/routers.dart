@@ -6,6 +6,9 @@ class Routers {
   static String root = '/';
 
   static String home = '/home';
+  static String brandDetail = '/brandDetail';
+  static String categoryGoodsList = '/categoryGoodsList';
+  static String goodsDetail = '/goodsDetail';
 
   static void configureRoutes(Router router) {
     router.notFoundHandler = Handler(
@@ -15,5 +18,8 @@ class Routers {
 
     router.define(root, handler: loadingHandler);
     router.define(home, handler: homeHandler);
+    router.define(brandDetail, handler: webViewHandler);
+    router.define(categoryGoodsList, handler: categoryGoodsListHandler);
+    router.define(goodsDetail, handler: goodsDetailHandler);
   }
 }
