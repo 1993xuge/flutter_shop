@@ -25,7 +25,6 @@ class ShopApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(primaryColor: Colors.redAccent),
-
         //生成路由的回调函数，当导航的命名路由的时候，会使用这个来生成界面
         onGenerateRoute: Application.router.generator,
       ),

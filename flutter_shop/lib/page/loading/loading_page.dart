@@ -1,10 +1,33 @@
-
 import 'package:flutter/material.dart';
+import 'package:fluttershop/utils/navigator_util.dart';
 
-class LoadingPage extends StatelessWidget{
+class LoadingPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _LoadingPageState();
+}
+
+class _LoadingPageState extends State<LoadingPage> {
+  @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(Duration(seconds: 3), () {
+      NavigatorUtil.goShopMainPage(context);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return null;
+    return Scaffold(
+      body: Container(
+        color: Colors.white,
+        child: Image.asset(
+          "images/loading.png",
+          width: double.infinity,
+          height: double.infinity,
+          fit: BoxFit.fill,
+        ),
+      ),
+    );
   }
 }
