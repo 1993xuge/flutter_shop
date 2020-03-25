@@ -1,62 +1,33 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttershop/provider/user_info.dart';
+import 'package:fluttershop/router/application.dart';
+import 'package:fluttershop/router/routers.dart';
+import 'package:provider/provider.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(ShopApp());
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+class ShopApp extends StatelessWidget {
+  ShopApp() {
+    final router = Router();
+    Routers.configureRoutes(router);
+    Application.router = router;
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          builder: (_) => UserInfoProvider(),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(primaryColor: Colors.redAccent),
+
+        //生成路由的回调函数，当导航的命名路由的时候，会使用这个来生成界面
+        onGenerateRoute: Application.router.generator,
       ),
     );
   }
