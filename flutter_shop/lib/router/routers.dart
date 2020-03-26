@@ -10,6 +10,9 @@ class Routers {
   static String categoryGoodsList = '/categoryGoodsList';
   static String goodsDetail = '/goodsDetail';
 
+  static String login = '/login';
+  static String register = '/register';
+
   static void configureRoutes(Router router) {
     router.notFoundHandler = Handler(
         handlerFunc: (BuildContext context, Map<String, List<String>> params) {
@@ -21,5 +24,7 @@ class Routers {
     router.define(brandDetail, handler: webViewHandler);
     router.define(categoryGoodsList, handler: categoryGoodsListHandler);
     router.define(goodsDetail, handler: goodsDetailHandler);
+    router.define(login, handler: loginHandler);
+    router.define(register, handler: registerHandler);
   }
 }

@@ -18,22 +18,39 @@ class NavigatorUtil {
     String categoryName = FluroConvertUtil.fluroCnParamsEncode(category);
     Application.router.navigateTo(context,
         "${Routers.categoryGoodsList}?categoryName=$categoryName&categoryId=$categoryId",
-        transition: TransitionType.inFromRight, replace: true);
+        transition: TransitionType.inFromRight);
   }
 
   // 跳转至 商品详情 页面
   static goGoodsDetailListPage(BuildContext context, int goodsId) {
     Application.router.navigateTo(
         context, "${Routers.goodsDetail}?goodsId=$goodsId",
-        transition: TransitionType.inFromRight, replace: true);
+        transition: TransitionType.inFromRight);
   }
 
-  // 跳转至 首页
+  // 跳转至 WebView
   static goWebView(BuildContext context, String title, String url) {
     String encodeTitle = FluroConvertUtil.fluroCnParamsEncode(title);
     String encodeUrl = FluroConvertUtil.fluroCnParamsEncode(url);
     Application.router.navigateTo(
         context, "${Routers.brandDetail}?title=$encodeTitle&url=$encodeUrl",
-        transition: TransitionType.inFromRight, replace: true);
+        transition: TransitionType.inFromRight);
+  }
+
+  // 跳转到 登录页面
+  static goLogin(BuildContext context) {
+    Application.router.navigateTo(context, Routers.login,
+        transition: TransitionType.inFromRight);
+  }
+
+  // 跳转到 注册页面
+  static goRegister(BuildContext context) {
+    Application.router.navigateTo(context, Routers.register,
+        transition: TransitionType.inFromRight);
+  }
+
+  // 跳出 注册页面
+  static popRegister(BuildContext context) {
+    Application.router.pop(context);
   }
 }
