@@ -11,7 +11,7 @@ class HomeProductWidget extends StatelessWidget {
   HomeProductWidget(this.products);
 
   _goGoodsDetail(BuildContext context, Goods goods) {
-    NavigatorUtil.goGoodsDetailListPage(context, goods.id);
+    NavigatorUtil.goGoodsDetails(context, goods.id);
   }
 
   @override

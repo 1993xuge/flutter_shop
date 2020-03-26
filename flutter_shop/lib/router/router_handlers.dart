@@ -1,5 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttershop/page/goods/goods_category_page.dart';
+import 'package:fluttershop/page/goods/goods_detail_page.dart';
 import 'package:fluttershop/page/home/index_page.dart';
 import 'package:fluttershop/page/loading/loading_page.dart';
 import 'package:fluttershop/page/login/login_page.dart';
@@ -32,9 +34,7 @@ var categoryGoodsListHandler = Handler(
 
   print(
       "categoryGoodsListHandler => categoryName = $categoryName  categoryId = $categoryId");
-
-  // TODO
-  return null;
+  return GoodsCategoryPage(categoryName: categoryName, categoryId: categoryId);
 });
 
 var goodsDetailHandler = Handler(
@@ -42,9 +42,7 @@ var goodsDetailHandler = Handler(
   var goodsId = int.parse(paramerters["goodsId"].first);
 
   print("goodsDetailHandler => goodsId = $goodsId");
-
-  // TODO 商品详情页
-  return null;
+  return GoodsDetailPage(goodsId: goodsId);
 });
 
 var loginHandler = Handler(

@@ -22,7 +22,7 @@ class NavigatorUtil {
   }
 
   // 跳转至 商品详情 页面
-  static goGoodsDetailListPage(BuildContext context, int goodsId) {
+  static goGoodsDetails(BuildContext context, int goodsId) {
     Application.router.navigateTo(
         context, "${Routers.goodsDetail}?goodsId=$goodsId",
         transition: TransitionType.inFromRight);
